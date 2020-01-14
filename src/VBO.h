@@ -1,4 +1,6 @@
 #pragma once
+
+//Vertex Buffer Object contains the data of a mesh attribute
 class VBO
 {
 private:

@@ -2,7 +2,7 @@
 
 #include <array>
 #include "VAO.h"
-class Color;
+//Mesh is a wrapper around VAO to simplify the use of VAO
 class Mesh : public VAO{
 private:
     enum MeshAttributeType{

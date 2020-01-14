@@ -2,7 +2,7 @@
 
 #include <map>
 class VBO;
-
+//Vertex Array Object contains the VBOs(Vertex Buffer Objects)
 class VAO
 {
 private:

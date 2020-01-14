@@ -3,6 +3,7 @@
 #include <string>
 #include "glm/glm.hpp"
 using namespace glm;
+//Represent a shader it is used to send information to the GPU from the CPU
 class ShaderProgram {
 protected:
     unsigned int program_id;
