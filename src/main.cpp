@@ -25,6 +25,7 @@ int main() {
     std::cout << "Initialized GLEW" << std::endl :
     std::cerr << "FAILED:GLEW INITIALIZATION" << std::endl;
 
+    glClearColor(1,0,0,0);
     //MAIN LOOP
     while(!glfwWindowShouldClose(window))
     {
@@ -39,6 +40,5 @@ int main() {
     }
     //CLEANUP
     glfwTerminate();
-    delete window;
     return 0;
 }
