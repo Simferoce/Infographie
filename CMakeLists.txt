@@ -22,8 +22,8 @@ message("Including GLM")
 include_directories(Dependencies/GLM)
 add_subdirectory(Dependencies/GLM)
 
-#message("Including STB")
-#include_directories(Dependencies/STB_IMAGE)
+message("Including STB")
+include_directories(Dependencies/STB_IMAGE)
 
 add_executable(Infographie src/main.cpp)
 
