@@ -42,7 +42,7 @@ int main() {
     //utility namespace to create geometry
     Geometry::makeQuad(mesh);
     //setting colors of vertices
-    float *colors = new float[16]{0, 0, 0, 0,//white
+    float *colors = new float[16]{1, 1, 1, 1,//white
                                   1, 0, 0, 0,//red
                                   0, 1, 0, 0,//green
                                   0, 0, 1, 0//blue
@@ -51,17 +51,21 @@ int main() {
 
     //MAIN LOOP
     while (!glfwWindowShouldClose(window)) {
-        glClear(GL_COLOR_BUFFER_BIT);
+        //Get inputs
+        glfwPollEvents();
+        //Update
         if (glfwGetKey(window, GLFW_KEY_ESCAPE)) {
             glfwSetWindowShouldClose(window, true);
         }
+        //Render
+        glClear(GL_COLOR_BUFFER_BIT);
         shaderProgram.bind();
         mesh.bind();
         glDrawElements(GL_QUADS, mesh.getVertexCount(), GL_UNSIGNED_INT, nullptr);
         mesh.unbind();
         shaderProgram.unbind();
         glfwSwapBuffers(window);
-        glfwPollEvents();
+
     }
     //CLEANUP
     glfwTerminate();
