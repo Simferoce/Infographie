@@ -4,7 +4,7 @@
 
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
-#include "Mesh.h"
+#include "VAO.h"
 #include "Geometry.h"
 #include "ShaderProgram.h"
 #include "vector"
@@ -38,7 +38,7 @@ int main() {
     ShaderProgram shaderProgram = ShaderProgram(sourceFrag, sourceVert);
 
     //creating the mesh
-    Mesh mesh = Mesh();
+    VAO mesh = VAO();
     //utility namespace to create geometry
     Geometry::makeQuad(mesh);
     //setting colors of vertices
@@ -47,7 +47,7 @@ int main() {
                                   0, 1, 0, 0,//green
                                   0, 0, 1, 0//blue
     };
-    mesh.colors(colors, 16);
+    mesh.put(3,4,colors, 16);
 
     //MAIN LOOP
     while (!glfwWindowShouldClose(window)) {

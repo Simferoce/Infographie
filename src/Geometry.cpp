@@ -2,9 +2,8 @@
 // Created by User on 2020-01-07.
 //
 #include "Geometry.h"
-#include "Mesh.h"
 #include "vector"
-
+#include "VAO.h"
 void Geometry::makeQuad(VAO &vao) {
     auto vert = std::vector<float>();
     vert.push_back(-.5);vert.push_back(-.5);vert.push_back(0);
@@ -13,13 +12,12 @@ void Geometry::makeQuad(VAO &vao) {
     vert.push_back(.5f);vert.push_back(-.5);vert.push_back(0);
 
     auto indices = std::vector<unsigned int>();
-    indices.push_back(0);
+    indices.push_back(2);
     indices.push_back(1);
-    indices.push_back(2);
     indices.push_back(0);
-    indices.push_back(2);
+    indices.push_back(0);
     indices.push_back(3);
-
+    indices.push_back(2);
     auto uvs = std::vector<float>();
     for (int i = 0;i < (vert.size()/ 3) / 4; ++i) {
         uvs.push_back(0);
