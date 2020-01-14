@@ -1,21 +1,24 @@
 #include <iostream>
+
 #define GLEW_STATIC
+
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
+#include "Mesh.h"
+#include "Geometry.h"
+#include "ShaderProgram.h"
+#include "vector"
 
 int main() {
     //INITIALIZING GLFW
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
-    std::cout <<"Opening window..." << std::endl;
-    GLFWwindow* window;
-    if (glfwInit())
-    {
-        std::cout <<"Initialized GLFW" << std::endl;
-         window= glfwCreateWindow(900,500, "title", NULL, NULL);
-        if (!window)
-        {
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    //glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
+    GLFWwindow *window;
+    if (glfwInit()) {
+        std::cout << "Initialized GLFW" << std::endl;
+        window = glfwCreateWindow(900, 500, "title", NULL, NULL);
+        if (!window) {
             return 1;
         }
         glfwMakeContextCurrent(window);
@@ -25,18 +28,40 @@ int main() {
     std::cout << "Initialized GLEW" << std::endl :
     std::cerr << "FAILED:GLEW INITIALIZATION" << std::endl;
 
-    glClearColor(1,0,0,0);
+    //SETTING CLEAR COLOR BLACK
+    glClearColor(0, 0, 0, 0);
+
+    //INITIALIZING BEFORE LOOP
+    //creating the shader
+    const std::string sourceFrag = "../src/ShaderSource/vertex.glsl";
+    const std::string sourceVert = "../src/ShaderSource/fragment.glsl";
+    ShaderProgram shaderProgram = ShaderProgram(sourceFrag, sourceVert);
+
+    //creating the mesh
+    Mesh mesh = Mesh();
+    //utility namespace to create geometry
+    Geometry::makeQuad(mesh);
+    //setting colors of vertices
+    float *colors = new float[16]{0, 0, 0, 0,//white
+                                  1, 0, 0, 0,//red
+                                  0, 1, 0, 0,//green
+                                  0, 0, 1, 0//blue
+    };
+    mesh.colors(colors, 16);
+
     //MAIN LOOP
-    while(!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
-        if(glfwGetKey(window,GLFW_KEY_ESCAPE))
-        {
-            glfwSetWindowShouldClose(window,true);
+        if (glfwGetKey(window, GLFW_KEY_ESCAPE)) {
+            glfwSetWindowShouldClose(window, true);
         }
+        shaderProgram.bind();
+        mesh.bind();
+        glDrawElements(GL_QUADS, mesh.getVertexCount(), GL_UNSIGNED_INT, nullptr);
+        mesh.unbind();
+        shaderProgram.unbind();
         glfwSwapBuffers(window);
         glfwPollEvents();
-
     }
     //CLEANUP
     glfwTerminate();

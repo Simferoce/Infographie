@@ -25,6 +25,16 @@ add_subdirectory(Dependencies/GLM)
 message("Including STB")
 include_directories(Dependencies/STB_IMAGE)
 
-add_executable(Infographie src/main.cpp)
+add_executable(Infographie src/main.cpp
+        src/Geometry.cpp
+        src/Geometry.h
+        src/Mesh.cpp
+        src/Mesh.h
+        src/VAO.h
+        src/VAO.cpp
+        src/VBO.h
+        src/VBO.cpp
+        src/ShaderProgram.h
+        src/ShaderProgram.cpp)
 
 target_link_libraries(Infographie glfw3 libglew32.a ${OPENGL_LIBRARIES})
