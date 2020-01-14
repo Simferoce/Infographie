@@ -28,13 +28,14 @@ int main() {
     //MAIN LOOP
     while(!glfwWindowShouldClose(window))
     {
-        glfwPollEvents();
+        glClear(GL_COLOR_BUFFER_BIT);
         if(glfwGetKey(window,GLFW_KEY_ESCAPE))
         {
             glfwSetWindowShouldClose(window,true);
         }
         glfwSwapBuffers(window);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glfwPollEvents();
+
     }
     //CLEANUP
     glfwTerminate();
