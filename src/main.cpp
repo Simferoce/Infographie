@@ -61,7 +61,7 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
         shaderProgram.bind();
         mesh.bind();
-        glDrawElements(GL_QUADS, mesh.getVertexCount(), GL_UNSIGNED_INT, nullptr);
+        glDrawElements(GL_TRIANGLES, mesh.getVertexCount(), GL_UNSIGNED_INT, nullptr);
         mesh.unbind();
         shaderProgram.unbind();
         glfwSwapBuffers(window);
