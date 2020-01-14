@@ -15,9 +15,3 @@ VBO::~VBO() {
     glDisableVertexAttribArray(position);
     glDeleteBuffers(1,&vbo_id);
 }
-void VBO::bind() const {
-    glBindBuffer(GL_ARRAY_BUFFER, vbo_id);
-}
-void VBO::unbind() const {
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-}

@@ -10,7 +10,5 @@ private:
 public:
     VBO(unsigned int atribute_position, unsigned int atribute_size, float* data, unsigned int data_length);
     ~VBO();
-    void bind() const;
-    void unbind() const;
 };
 
