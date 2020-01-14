@@ -1,11 +1,6 @@
 
-
-//
-// Created by User on 2020-01-06.
-//
-class Mesh;
+#pragma once
 class VAO;
 namespace Geometry{
-    void makeCube(Mesh& mesh);
     void makeQuad(VAO& vao);
 }
