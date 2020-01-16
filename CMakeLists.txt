@@ -33,4 +33,4 @@ add_executable(Infographie src/main.cpp
         src/ShaderProgram.h
         src/ShaderProgram.cpp)
 
-target_link_libraries(Infographie glfw3 libglew32.a ${OPENGL_LIBRARIES})
+target_link_libraries(Infographie glfw3 glew32s.lib ${OPENGL_LIBRARIES})
