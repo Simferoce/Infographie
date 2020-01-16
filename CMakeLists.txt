@@ -9,10 +9,10 @@ find_package(OpenGL REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 message("Including GLEW")
-include_directories(Dependencies/GLEW/include)
+include_directories(Dependencies/GLEW_STATIC/include)
 
 message("Linking GLEW")
-link_directories(Dependencies/GLEW/lib)
+link_directories(Dependencies/GLEW_STATIC/lib/Release/x64/glew32s.lib)
 
 message("Including GLFW")
 include_directories("Dependencies/GLFW/include")
@@ -22,9 +22,6 @@ link_directories("Dependencies/GLFW/lib-mingw")
 message("Including GLM")
 include_directories(Dependencies/GLM)
 add_subdirectory(Dependencies/GLM)
-
-message("Including STB")
-include_directories(Dependencies/STB_IMAGE)
 
 add_executable(Infographie src/main.cpp
         src/Geometry.cpp
