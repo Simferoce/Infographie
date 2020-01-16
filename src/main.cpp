@@ -47,6 +47,10 @@ int main() {
                                   0, 1, 0, 0,//green
                                   0, 0, 1, 0//blue
     };
+    //put at the layout position 3 an attribute with 4 values per vertex, that has the values colors that have 16 elements
+    //look at the shader code in vertex to see what is the layout position of the atribute
+    //layout(location=3)in vec4 colors;
+    //layout position=3 and it is a vec4 so its 4 value per vertex
     mesh.put(3,4,colors, 16);
 
     //MAIN LOOP

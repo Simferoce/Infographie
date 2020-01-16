@@ -10,6 +10,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 message("Including GLEW")
 include_directories(Dependencies/GLEW/include)
+
 message("Linking GLEW")
 link_directories(Dependencies/GLEW/lib)
 
