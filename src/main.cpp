@@ -17,7 +17,7 @@ int main() {
     GLFWwindow *window;
     if (glfwInit()) {
         std::cout << "Initialized GLFW" << std::endl;
-        window = glfwCreateWindow(900, 500, "title", NULL, NULL);
+        window = glfwCreateWindow(900, 600, "title", NULL, NULL);
         if (!window) {
             return 1;
         }
