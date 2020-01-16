@@ -7,7 +7,7 @@ layout(location=3)in vec4 colors;
 out vec4 color;
 void main()
 {
-    uvs=texCoord;
+
     color=colors;
     gl_Position=vec4(vertexPosition.xyz,1.);
 }
